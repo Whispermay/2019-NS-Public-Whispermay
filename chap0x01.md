@@ -34,11 +34,11 @@
   
   * 点击 管理->虚拟介质管理->选中需要设置的vdi->在属性栏选择 类型->多重加载
   
-  ![](image\multiattach.png)
+  ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns-chap0x01/image/multiattach.png)
   
   * 选择虚拟机->设置->存储->重新挂载设置好的虚拟硬盘
   
-    ![](image\multiattach2.png)
+    ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns-chap0x01/image/multiattach2.png)
   
 * 配置网卡搭建网络拓扑
   * 攻击者主机（Kali-Attacker2）
@@ -49,7 +49,7 @@
   
     * 网卡3：Intel PRO/1000 MT 桌面（仅主机(Host-Only)网络，'VirtualBox Host-Only Ethernet Adapter #2'）
     
-      ![](image\AttackerNet.png)
+      ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns-chap0x01/image/AttackerNet.png)
     
   * 网关（Debian1）
     
@@ -61,61 +61,61 @@
     
     * 网卡4：Intel PRO/1000 MT 桌面（内部网络，'intnet2'）
     
-      ![](image\GatewayNet.png)
+      ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns-chap0x01/image/GatewayNet.png)
     
   * 靶机（xp-victim-2）
   
     * 网卡1：PCnet-FAST III（内部网络，‘intnet2’） 
   
-      ![](image\VitcimNet.png)
+      ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns-chap0x01/image/VitcimNet.png)
     
   * 网络拓扑图
     
-    ![](image\topology.jpg)
+    ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns-chap0x01/image/topology.jpg)
   
 * 连通性检测
   
   * 靶机---->攻击者主机，由下图可以到靶机Ping通了攻击者主机，收到了源ip为10.0.2.5的reply
   
-    ![](image\VictimpingAttacker.png)
+    ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns-chap0x01/image/VictimpingAttacker.png)
   
   * 攻击者主机--->靶机
   
     这里为了排除由于Windows防火墙因素造成Ping不同的可能，关闭了防火墙功能，攻击者依旧无法访问靶机。
   
-    ![](image\AttackerPingVictim.png)
+    ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns-chap0x01/image/AttackerPingVictim.png)
   
   * 网关<--->靶机和攻击者主机
   
-    ![](image\GatewayPingVictim.png)
+    ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns-chap0x01/image/GatewayPingVictim.png)
   
-    ![](\image\GatewayPingAttacker.png)
+    ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns-chap0x01/image/GatewayPingAttacker.png)
   
     攻击者Ping网关成功
   
-    ![](image\AttackerPingGateway1.png)
+    ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns-chap0x01/image/AttackerPingGateway1.png)
   
-    ![AttackerPingGateway2](image\AttackerPingGateway2.png)
+    ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns-chap0x01/image/AttackerPingGateway2.png)
   
   * 靶机的所有上下行流量必须经过网关
   
     在Gateway开启抓包后靶机Ping百度，再次之前应清空靶机中的ARP缓存，通过 arp -a 可以查看本机的ARP高速缓存列表。在网关抓包列表中我们可以看到只会在局域网中发生的ARP请求，而且找Gateway的地址恰好是我们自己，ARP请求和DNS请求都经过我们，故靶机的所有上下行流量都经过网关。
   
-    ![](image\VitcimALL.png)
+    ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns-chap0x01/image/VitcimALL.png)
   
   * 所有节点均可上网
   
     - [x] 靶机Ping微博 
   
-      <img src="image\XP-victimPing.png" style="zoom:60%;" />
+      <img src="https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns-chap0x01/image/XP-victimPing.png" style="zoom:60%;" />
   
     - [x] 网关Ping 百度 
   
-      <img src="image\GatewayPing.png" style="zoom:60%;" />
+      <img src="https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns-chap0x01/image/GatewayPing.png" style="zoom:60%;" />
   
     - [x] 攻击者主机Ping百度 
   
-      <img src="image\AttackerPing.png" style="zoom:60%;" />
+      <img src="https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns-chap0x01/image/AttackerPing.png" style="zoom:60%;" />
 
 ## 实验心得
 
