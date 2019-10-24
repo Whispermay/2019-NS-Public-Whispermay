@@ -64,17 +64,17 @@
 
      运行以上scapy代码
 
-     ![](E:\赵婧宇大三\网络安全\实验2\images\TCPconnectscanOPEN2.png)
+     ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns_chap0x05/ns_chap0x01实验提交1.0/images/TCPconnectscanOPEN2.png)
 
-     ![](images\TCPconnectscanOPEN1.png)
+     ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns_chap0x05/ns_chap0x01实验提交1.0/images/TCPconnectscanOPEN1.png)
 
   2. nc -l -p [port] 开启端口时，crtl+C结束即关闭：
 
-     ![](images\TCPconnectscanCLDSED2.png)
+     ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns_chap0x05/ns_chap0x01实验提交1.0/images/TCPconnectscanCLDSED2.png)
 
      我们可以看到只收到了一个RST包，证明端口处于关闭状态。
 
-     ![](images\TCPconnectscanCLOSED1.png)
+     ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns_chap0x05/ns_chap0x01实验提交1.0/images/TCPconnectscanCLOSED1.png)
 
   3. 添加过滤规则，过滤80端口：
 
@@ -82,7 +82,7 @@
      iptables -A INPUT -p tcp --dport 80 -j DROP
      ```
 
-     ![](images\TCPconnectscanFiltered.png)
+     ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns_chap0x05/ns_chap0x01实验提交1.0/images/TCPconnectscanFiltered.png)
 
      可以看到只有一个TCP包，没有得到TCP回复。
 
@@ -118,11 +118,11 @@
 
   ​                开启tcpdump抓包后运行以上代码：
 
-  ![](images\TCPXMASscanOPEN1.png)
+  ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns_chap0x05/ns_chap0x01实验提交1.0/images/TCPXMASscanOPEN1.png)
 
   ​                查看抓包文件：
 
-  ![](images\TCPXMASscanOPEN2.png)
+  ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns_chap0x05/ns_chap0x01实验提交1.0/images/TCPXMASscanOPEN2.png)
 
   ​                可以看到开放或过滤状态下的端口则无任何响应，符合预期结果。
 
@@ -130,5 +130,5 @@
 
   ​                运行以上代码。如果端口关闭则可以响应 RST 报文，但是抓的包中并没有，目前正在想办法解决。
 
-  ![](images\TCPXMASscanCLOSED2.png)
+  ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns_chap0x05/ns_chap0x01实验提交1.0/images/TCPXMASscanCLOSED2.png)
 
