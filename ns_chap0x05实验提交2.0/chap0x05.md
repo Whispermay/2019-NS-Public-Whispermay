@@ -12,7 +12,7 @@
 
 - 实验网络环境拓扑
 
-  ![](\images\tuopu.jpg)
+  ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns_chap0x05/ns_chap0x05%E5%AE%9E%E9%AA%8C%E6%8F%90%E4%BA%A42.0/images/tuopu.jpg)
 
 ## 实验要求
 
@@ -68,21 +68,21 @@
 
   运行以上scapy代码
   
-  ![](\images\TCPconnectscanOPEN2.png)
+  ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns_chap0x05/ns_chap0x05%E5%AE%9E%E9%AA%8C%E6%8F%90%E4%BA%A42.0/images/TCPconnectscanOPEN2.png)
   
-  ![](images\TCPconnectscanOPEN1.png)
+  ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns_chap0x05/ns_chap0x05%E5%AE%9E%E9%AA%8C%E6%8F%90%E4%BA%A42.0/images/TCPconnectscanOPEN1.png)
   
   用namp扫描，结果相符。
   
-  ![](images\TCPopen.png)
+  ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns_chap0x05/ns_chap0x05%E5%AE%9E%E9%AA%8C%E6%8F%90%E4%BA%A42.0/images/TCPopen.png)
   
 * nc -l -p [port] 开启端口，crtl+C结束即关闭：
 
-  ![](images\TCPconnectscanCLDSED2.png)
+  ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns_chap0x05/ns_chap0x05实验提交2.0/images/TCPconnectscanCLDSED2.png)
   
   我们可以看到只收到了一个RST包，证明端口处于关闭状态。
   
-  ![](images\TCPconnectscanCLOSED1.png)
+  ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns_chap0x05/ns_chap0x05%E5%AE%9E%E9%AA%8C%E6%8F%90%E4%BA%A42.0/images/TCPconnectscanCLOSED1.png)
   
 * 添加过滤规则，过滤80端口：
 
@@ -92,7 +92,7 @@
   
   wireshark抓包结果
   
-  ![](images\TCPconnectscanFiltered.png)
+  ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns_chap0x05/ns_chap0x05%E5%AE%9E%E9%AA%8C%E6%8F%90%E4%BA%A42.0/images/TCPconnectscanFiltered.png)
   
   可以看到只有一个TCP包，没有得到TCP回复。
 
@@ -128,15 +128,15 @@
 
   nmap扫描端口结果为开放/过滤
   
-  ![](\images\TCPfiltered.png)
+  ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns_chap0x05/ns_chap0x05%E5%AE%9E%E9%AA%8C%E6%8F%90%E4%BA%A42.0/images/TCPfiltered.png)
   
   开启tcpdump抓包后运行以上代码
   
-  ![](images\TCPXMASscanOPEN1.png)
+  ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns_chap0x05/ns_chap0x05%E5%AE%9E%E9%AA%8C%E6%8F%90%E4%BA%A42.0/images/TCPXMASscanOPEN1.png)
   
   查看抓包文件：
   
-  ![](images\TCPXMASscanOPEN2.png)
+  ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns_chap0x05/ns_chap0x05%E5%AE%9E%E9%AA%8C%E6%8F%90%E4%BA%A42.0/images/TCPXMASscanOPEN2.png)
   
   可以看到开放或过滤状态下的端口则无任何响应，符合预期结果。
   
@@ -144,11 +144,11 @@
 
   nmap端口扫描
   
-  ![](images\TCPclose.png)
+  ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns_chap0x05/ns_chap0x05%E5%AE%9E%E9%AA%8C%E6%8F%90%E4%BA%A42.0/images/TCPclose.png)
   
   运行以上代码。可以看到端口关闭则目标端口会响应 RST 报文。
   
-  ![](images\TCPXMASscanCLOSED2.png)                
+  ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns_chap0x05/ns_chap0x05%E5%AE%9E%E9%AA%8C%E6%8F%90%E4%BA%A42.0/images/TCPXMASscanCLOSED2.png)                
   
   
 
@@ -191,19 +191,19 @@
 
   nmap扫描端口验证，是开启的
 
-  ![](images\UDPopen1.png)
+  ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns_chap0x05/ns_chap0x05%E5%AE%9E%E9%AA%8C%E6%8F%90%E4%BA%A42.0/images/UDPopen1.png)
 
   查看抓包文件可以看到目标主机响应ipv4包，协议为UDP
 
-  ![](images\UDPopen2.png)
+  ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns_chap0x05/ns_chap0x05%E5%AE%9E%E9%AA%8C%E6%8F%90%E4%BA%A42.0/images/UDPopen2.png)
 
 * 关闭53端口时
 
   nmap端口扫描验证，是关闭的
 
-  ![](images\UDPclosed1.png)
+  ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns_chap0x05/ns_chap0x05%E5%AE%9E%E9%AA%8C%E6%8F%90%E4%BA%A42.0/images/UDPclosed1.png)
 
-  ![](images\UDPclosed2.png)
+  ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns_chap0x05/ns_chap0x05%E5%AE%9E%E9%AA%8C%E6%8F%90%E4%BA%A42.0/images/UDPclosed2.png)
 
   打开抓包文件发现没有UDP回复包，在ICMP包中type和code均为3。
 
@@ -211,15 +211,15 @@
 
   和关闭状态下的端口情况相同。
 
-  ![](images\UDPfiltered1.png)
+  ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns_chap0x05/ns_chap0x05%E5%AE%9E%E9%AA%8C%E6%8F%90%E4%BA%A42.0/images/UDPfiltered1.png)
 
   nmap扫描验证
 
-  ![](images\UDPfiltered2.png)
+  ![](https://github.com/CUCCS/2019-NS-Public-Whispermay/blob/ns_chap0x05/ns_chap0x05%E5%AE%9E%E9%AA%8C%E6%8F%90%E4%BA%A42.0/images/UDPfiltered2.png)
 
 #### 遇到的问题
 
-* 先前使用命令 nc -l -p 53 -n 打开udp53端口，但nmap扫描一直显示端口关闭，后改为nc -l -p 53 -n < /etc/passwd 后成功。
+* 先前使用命令 nc -l -p 53 -n 打开udp53端口，但nmap扫描一直显示端口关闭，后改为nc -l -p 53 -n < /etc/passwd 后成功，但每次扫描结束后端口会自动关闭。
 * 启动虚拟机时查询本机ip地址发现不是以172开头，原来是在启动时虚拟机网卡默认连接eth1而不是eth0 ，需要手动切换。
 
 #### 参考资料
