@@ -54,13 +54,13 @@
 
   * 用 docker ps 查看WebGoat的三个镜像的健康状况：
 
-    ![](images\docker1.png)
+    ![](./images/docker1.png)
 
     可以看到WebGoat 7.1对应虚拟机的8087端口，WebGoat 8.0对应虚拟机的8088端口，本次实验使用WebGoat 7.1版本。
 
   * 终端输入 php -S 127.0.0.1:8000 搭建一个内置的web服务器
 
-    ![](images/php-s.png)
+    ![](./images/php-s.png)
 
   * 在浏览器中输入 127.0.0.1:8087/WebGoat/attack,注册成功后即可开始实验
 
@@ -68,15 +68,15 @@
 
   * 在左侧菜单中进入 Authentication Flaws->Forgot Password
 
-    ![](images\Password1.png)
+    ![](./images/Password1.png)
 
     * Web应用通常会有密码找回功能，如设置一些密保问题来验证用户身份，但有些密保问题过于简单容易被穷举出来（如颜色等），是不可靠的。
 
-      ![](images\Password2.png)
+      ![](./images/Password2.png)
 
     * 不断尝试回答问题获取到用户的详细信息。
 
-      ![](images\Password3.png)
+      ![](./images/Password3.png)
 
   * 左侧菜单中选择 Multi Level Login1
 
@@ -84,19 +84,19 @@
 
     * 浏览器右键查看页面源代码，找到隐藏的二级登录序号，将value值改为1，后在输入框中输入一级登录序号，验证成功。
 
-      ![](images\tan1.png)
+      ![](./images/tan1.png)
 
-      ![](images\tan2png.png)
+      ![](./images/tan2png.png)
 
   * 左侧菜单中选择Multi Level Login2
 
     * 在第二层认证的时候并没有验证用户名与认证码的关系，故我们用Joe的身份进行登录，密码为banana,在第二层认证的时候修改源代码中Joe为Jane,输入认证码并提交。
 
-      ![](images\tan2-1.png)
+      ![](./images/tan2-1.png)
 
     * 可以看到成功登录了Jane的账号
 
-      ![](images\tan2-2.png)
+      ![](./images/tan2-2.png)
 
 * 漏洞二：脆弱认证和会话管理
 
@@ -104,15 +104,15 @@
 
     * 服务器是通过每个用户的Session ID来认证其身份，如果用户已登录则不必再重新验证。伪造一个带有Session的链接通过邮件的形式发送给别人：
 
-      ![](images\SessionID1.png)
+      ![](./images/SessionID1.png)
 
     * 对方收到邮件后点开了链接并进行了登录，用户名为Jane,密码为tarzan
 
-      ![](images\SessionID2.png)
+      ![](./images/SessionID2.png)
 
     * 此时在网页地址后面将SessionID更改为附在邮件里的Session的值，即可直接进入对方的账户
 
-      ![](images\SessionID4.png)
+      ![](./images/SessionID4.png)
 
 * 漏洞三：跨站点脚本（XSS）
 
@@ -124,7 +124,7 @@
       <script>alert(document.cookie)</script>
       ```
 
-      ![](images\XSS-cookie.png)
+      ![](./images/XSS-cookie.png)
 
     * 在输入框中输入以下代码：
 
@@ -134,7 +134,7 @@
 
     * 此时弹出了一个新的网页，查看其URL
 
-      ![](images\XSS-succeed.png)
+      ![](./images/XSS-succeed.png)
 
       可以看到其中的msg参数和之前页面的Cookie值相同，实验成功
 
@@ -142,27 +142,27 @@
 
   * 配置好浏览器的代理
 
-    ![](images\Http1.png)
+    ![](./images/Http1.png)
 
     删除框里的内容
 
-    ![](images\Http2.png)
+    ![](./images/Http2.png)
 
   * 打开Burpsuite开始拦截，Intercept is on 为开启拦截，off为关闭拦截
 
-    ![](images\BSon.png)
+    ![](./images/BSon.png)
 
   * 在左侧菜单中进入Injection Flaws->SQL Injection，页面如下图，此时我们并不知道密码
 
-    ![](images\SQL0.png)
+    ![](./images/SQL0.png)
 
   * 在Burpsuite拦截到的内容中将password的内容更改为 ' or '1'='1
 
-    ![](images\SQL1.png)
+    ![](./images/SQL1.png)
 
   * 将修改后的内容forward，可以看到我们成功绕过认证登录
 
-    ![](images\SQL2.png)
+    ![](./images/SQL2.png)
 
 * 漏洞五：未验证用户输入
 
@@ -172,9 +172,9 @@
 
   * 利用burp拦截提交请求，并将6个输入区域(包含radio button，checkbox，输入框，submit按钮)；此时发现Disabled input field输入值也被抓取到了。
 
-    ![](images\Bypass1-2.png)
+    ![](./images/Bypass1-2.png)
 
-    ![](images\Bypass2.png)
+    ![](./images/Bypass2.png)
 
 ### Juice Shop环境下的漏洞利用
 
@@ -195,7 +195,7 @@
 
 * 安装Juice Shop 环境时总是卡在最后一步。
 
-  ![](images\waiting.png)
+  ![](./images/waiting.png)
 
 ##  参考资料
 
