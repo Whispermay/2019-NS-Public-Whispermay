@@ -13,8 +13,8 @@
 
 ## 实验要求
 
-- [ ] 每个实验环境完成不少于 **5** 种不同漏洞类型的漏洞利用练习；
-- [ ] （可选）使用不同于官方教程中的漏洞利用方法完成目标漏洞利用练习；
+- [x] 每个实验环境完成不少于 **5** 种不同漏洞类型的漏洞利用练习；
+- [ ] (可选）使用不同于官方教程中的漏洞利用方法完成目标漏洞利用练习；
 - [ ] （可选）**最大化** 漏洞利用效果实验；
 - [ ] （可选）编写 **自动化** 漏洞利用脚本完成指定的训练项目；
 - [ ] （可选）定位缺陷代码；
@@ -178,14 +178,101 @@
 
 ### Juice Shop环境下的漏洞利用
 
-* 实验环境搭建
+- 实验环境搭建
 
-  * 进入juice-shop文件夹下，使用以下指令安装Juice Shop环境
+  - 进入juice-shop文件夹下，使用以下指令安装Juice Shop环境
 
     ```
     docker-compose up -d
     ```
 
+  - 使用 docker ps 查看镜像的健康状况
+
+  - 输入访问地址，进入Juice Shop环境界面
+
+  - 新用户注册登录
+
+    ![](./images/Register.png)
+
+  - 此时页面看起来像一个网上购物的网站，使用开发者工具查看网页源代码，找到计分板页面#/score-board
+
+    ![](./images/ScoreBoard1.png)
+
+  - 然后访问计分板页面就可以看到所有的成就和每一关的要求，此时已经通过了第一关Score Board
+
+    ![](./images/ScoreBoard2.png)
+
+- 漏洞一：Zero Stars
+
+  - 目的：给网站一个0星的评价
+
+  - 找到评价页面，发现没有打星是不能够评价的，可以通过修改前端代码来实现0星评价
+
+    跳转到客户反馈页面
+
+    ![](./images/ZeroStars1.png)
+
+    使用开发者工具在Submit处找到disabled并删除
+
+    ![](./images/ZeroStars2.png)
+
+    再次尝试提交
+
+    ![](./images/ZeroStars3.png)
+
+    提交成功！
+
+- 漏洞二：Error Handing
+
+  - 目的：引发一个错误
+
+  - 在商品详情页面提交Review,内容输入一串无意义的字符串
+
+    ![](./images/ErrorHanding1.png)
+
+    ![](./images/ErrorHanding2.png)
+
+- 漏洞三：Forged Feedback
+
+  - 目的：用别人的用户名来反馈
+
+  - 使用Burp Suite抓包查看客户反馈的流程，点击提交后，抓包更改最后一行的UserId.![](./images/ForgedFeedback1.png)
+
+    ![](./images/ViewBasket2.png)
+
+- 漏洞四：Confidential Document
+
+  - 目的：查阅机密文件
+
+  - 在右边的菜单中查看“关于我们”
+
+    ![](./images/Document1.png)
+
+  - 可以看到有一段与众不同的话，点击它
+
+    ![](./images/Document2.png)
+
+  - 查看页面路径，访问该路径
+
+    ![](./images/Document3.png)
+
+  - 可以看到该路径下有许多文件，点击第一个文件
+
+    ![](./images/Document4.png)
+
+    ![](./images/Document5.png)
+
+    任务完成！
+
+- 漏洞五：View Basket
+
+  - 目的：到达别人的购物车
+
+  - 使用Burp Suite查看添加商品到购物车的流程，点添加购物车后，抓包发现链接上有个/rest/basket/5，修改此处的5为其他数字。就可以到达别人的购物车了
+
+    ![](./images/ViewBasket1.png)
+
+    ![](./images/ViewBasket2.png)
     
 
 
